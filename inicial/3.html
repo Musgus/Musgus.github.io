@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicial - 3 Años</title>
+    <title>Recursos para 4 Años</title>
     <style>
         * {
             margin: 0;
@@ -41,9 +41,6 @@
         }
 
         .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
             margin-bottom: 2rem;
         }
 
@@ -75,7 +72,7 @@
         }
 
         .pdf-icon {
-            background: #ff4b4b;
+            background: #4b96ff;
             color: white;
             width: 48px;
             height: 48px;
@@ -122,47 +119,7 @@
             background: #f0f2f5;
             color: #333;
         }
-
-        .back-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 1rem;
-            background: white;
-            border: none;
-            border-radius: 8px;
-            color: #666;
-            text-decoration: none;
-            margin-bottom: 1rem;
-            transition: all 0.3s;
-        }
-
-        .back-button:hover {
-            background: #f0f2f5;
-            color: #333;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
-            }
-
-            .sidebar {
-                width: 100%;
-                padding: 1rem;
-            }
-
-            .main-content {
-                padding: 1rem;
-            }
-
-            .resource-meta {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-        }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <div class="container">
@@ -171,137 +128,87 @@
         </div>
 
         <div class="main-content">
-            <a href="/inicial.html" class="back-button">
-                <i class="fas fa-arrow-left"></i>
-                Volver a Inicial
-            </a>
-
             <div class="header">
-                <h1 class="welcome-text">Recursos para 3 Años</h1>
+                <h1 class="welcome-text">Recursos para 4 Años</h1>
             </div>
 
             <div class="resources-grid">
-                <div class="resource-card">
+                <!-- Cartilla para Familias -->
+                <div class="resource-card" onclick="openPDF('https://drive.google.com/file/d/10UEO3_YbzfT1ViWlajrvRfBuRjRm1dcs/preview')">
                     <div class="pdf-icon">
                         <i class="fas fa-file-pdf"></i>
                     </div>
                     <div class="resource-info">
-                        <h3 class="resource-title">CARTILLA PARA FAMILIAS</h3>
+                        <h3 class="resource-title">Cartilla para Familias</h3>
                         <div class="resource-meta">
-                            <span><i class="far fa-calendar"></i> 8 ago 2022</span>
-                            <span><i class="fas fa-user"></i> apprendia.muestras</span>
+                            <span><i class="far fa-calendar"></i> 16 sept 2022</span>
+                            <span><i class="fas fa-user"></i> Apprendia</span>
                             <span><i class="fas fa-file-archive"></i> 12.1 MB</span>
                         </div>
                     </div>
                     <div class="actions">
-                        <button class="action-button" title="Descargar">
+                        <button class="action-button" onclick="downloadPDF('https://drive.google.com/uc?id=10UEO3_YbzfT1ViWlajrvRfBuRjRm1dcs', event)">
                             <i class="fas fa-download"></i>
-                        </button>
-                        <button class="action-button" title="Compartir">
-                            <i class="fas fa-share-alt"></i>
-                        </button>
-                        <button class="action-button" title="Más opciones">
-                            <i class="fas fa-ellipsis-v"></i>
                         </button>
                     </div>
                 </div>
 
-                <div class="resource-card">
+                <!-- Comuaventura -->
+                <div class="resource-card" onclick="openPDF('https://drive.google.com/file/d/1SPPyzrca7FpdZZqlRJMlhrkvY_fbA2Aa/preview')">
                     <div class="pdf-icon">
                         <i class="fas fa-file-pdf"></i>
                     </div>
                     <div class="resource-info">
-                        <h3 class="resource-title">Comuaventura 3 años digital</h3>
+                        <h3 class="resource-title">Comuaventura</h3>
                         <div class="resource-meta">
                             <span><i class="far fa-calendar"></i> 16 abr 2024</span>
-                            <span><i class="fas fa-user"></i> apprendia.muestras</span>
+                            <span><i class="fas fa-user"></i> Apprendia</span>
                             <span><i class="fas fa-file-archive"></i> 50.3 MB</span>
                         </div>
                     </div>
                     <div class="actions">
-                        <button class="action-button" title="Descargar">
+                        <button class="action-button" onclick="downloadPDF('https://drive.google.com/uc?id=1SPPyzrca7FpdZZqlRJMlhrkvY_fbA2Aa', event)">
                             <i class="fas fa-download"></i>
-                        </button>
-                        <button class="action-button" title="Compartir">
-                            <i class="fas fa-share-alt"></i>
-                        </button>
-                        <button class="action-button" title="Más opciones">
-                            <i class="fas fa-ellipsis-v"></i>
                         </button>
                     </div>
                 </div>
 
-                <div class="resource-card">
+                <!-- Media Aventuras -->
+                <div class="resource-card" onclick="openPDF('https://drive.google.com/file/d/1o312vl_OxYTUkfocVog8B5aWrRqpl1mT/preview')">
                     <div class="pdf-icon">
                         <i class="fas fa-file-pdf"></i>
                     </div>
                     <div class="resource-info">
-                        <h3 class="resource-title">Cuaderno 3 años Media aventuras</h3>
+                        <h3 class="resource-title">Media Aventuras</h3>
                         <div class="resource-meta">
                             <span><i class="far fa-calendar"></i> 16 abr 2024</span>
-                            <span><i class="fas fa-user"></i> apprendia.muestras</span>
+                            <span><i class="fas fa-user"></i> Apprendia</span>
                             <span><i class="fas fa-file-archive"></i> 15.7 MB</span>
                         </div>
                     </div>
                     <div class="actions">
-                        <button class="action-button" title="Descargar">
+                        <button class="action-button" onclick="downloadPDF('https://drive.google.com/uc?id=1o312vl_OxYTUkfocVog8B5aWrRqpl1mT', event)">
                             <i class="fas fa-download"></i>
-                        </button>
-                        <button class="action-button" title="Compartir">
-                            <i class="fas fa-share-alt"></i>
-                        </button>
-                        <button class="action-button" title="Más opciones">
-                            <i class="fas fa-ellipsis-v"></i>
                         </button>
                     </div>
                 </div>
 
-                <div class="resource-card">
+                <!-- Guía para el Profesor -->
+                <div class="resource-card" onclick="openPDF('https://drive.google.com/file/d/15hwtkBp4fvRJIrieHXi5TxzZr8Bd9Ofi/preview')">
                     <div class="pdf-icon">
                         <i class="fas fa-file-pdf"></i>
                     </div>
                     <div class="resource-info">
-                        <h3 class="resource-title">GUÍA PARA PROFESOR FINAL</h3>
+                        <h3 class="resource-title">Guía para el Profesor</h3>
                         <div class="resource-meta">
                             <span><i class="far fa-calendar"></i> 5 sept 2022</span>
-                            <span><i class="fas fa-user"></i> apprendia.muestras</span>
+                            <span><i class="fas fa-user"></i> Apprendia</span>
                             <span><i class="fas fa-file-archive"></i> 56.8 MB</span>
                         </div>
                     </div>
                     <div class="actions">
-                        <button class="action-button" title="Descargar">
+                        <button class="action-button" onclick="downloadPDF('https://drive.google.com/uc?id=15hwtkBp4fvRJIrieHXi5TxzZr8Bd9Ofi', event)">
                             <i class="fas fa-download"></i>
-                        </button>
-                        <button class="action-button" title="Compartir">
-                            <i class="fas fa-share-alt"></i>
-                        </button>
-                        <button class="action-button" title="Más opciones">
-                            <i class="fas fa-ellipsis-v"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="resource-card">
-                    <div class="pdf-icon">
-                        <i class="fas fa-file-pdf"></i>
-                    </div>
-                    <div class="resource-info">
-                        <h3 class="resource-title">Mateaventura 3 años digital</h3>
-                        <div class="resource-meta">
-                            <span><i class="far fa-calendar"></i> 16 abr 2024</span>
-                            <span><i class="fas fa-user"></i> apprendia.muestras</span>
-                            <span><i class="fas fa-file-archive"></i> 71.2 MB</span>
-                        </div>
-                    </div>
-                    <div class="actions">
-                        <button class="action-button" title="Descargar">
-                            <i class="fas fa-download"></i>
-                        </button>
-                        <button class="action-button" title="Compartir">
-                            <i class="fas fa-share-alt"></i>
-                        </button>
-                        <button class="action-button" title="Más opciones">
-                            <i class="fas fa-ellipsis-v"></i>
                         </button>
                     </div>
                 </div>
@@ -310,25 +217,17 @@
     </div>
 
     <script>
-        // Add hover effect for resource cards
-        document.querySelectorAll('.resource-card').forEach(card => {
-            card.addEventListener('click', function(e) {
-                if (!e.target.closest('.action-button')) {
-                    // Handle card click (e.g., open PDF)
-                    console.log('Open PDF:', this.querySelector('.resource-title').textContent);
-                }
-            });
-        });
+        function openPDF(pdfPath) {
+            window.open(pdfPath, '_blank');
+        }
 
-        // Handle action button clicks
-        document.querySelectorAll('.action-button').forEach(button => {
-            button.addEventListener('click', function(e) {
-                e.stopPropagation();
-                const action = this.getAttribute('title');
-                const resourceTitle = this.closest('.resource-card').querySelector('.resource-title').textContent;
-                console.log(`${action} clicked for: ${resourceTitle}`);
-            });
-        });
+        function downloadPDF(pdfPath, event) {
+            event.stopPropagation();
+            const link = document.createElement('a');
+            link.href = pdfPath;
+            link.download = '';
+            link.click();
+        }
     </script>
 </body>
 </html>
