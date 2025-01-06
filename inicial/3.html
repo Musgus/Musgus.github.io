@@ -143,7 +143,7 @@
         }
 
         @media (max-width: 768px) {
-            .container {
+            .container { 
                 flex-direction: column;
             }
 
@@ -181,7 +181,7 @@
             </div>
 
             <div class="resources-grid">
-                <div class="resource-card">
+                <div class="resource-card" onclick="openResource('/ruta/cartilla-familias.pdf')">
                     <div class="pdf-icon">
                         <i class="fas fa-file-pdf"></i>
                     </div>
@@ -194,19 +194,16 @@
                         </div>
                     </div>
                     <div class="actions">
-                        <button class="action-button" title="Descargar">
+                        <button class="action-button" onclick="downloadResource('/ruta/cartilla-familias.pdf')" title="Descargar">
                             <i class="fas fa-download"></i>
                         </button>
-                        <button class="action-button" title="Compartir">
+                        <button class="action-button" onclick="shareResource('Cartilla para Familias')" title="Compartir">
                             <i class="fas fa-share-alt"></i>
-                        </button>
-                        <button class="action-button" title="Más opciones">
-                            <i class="fas fa-ellipsis-v"></i>
                         </button>
                     </div>
                 </div>
 
-                <div class="resource-card">
+                <div class="resource-card" onclick="openResource('/ruta/comuaventura-digital.pdf')">
                     <div class="pdf-icon">
                         <i class="fas fa-file-pdf"></i>
                     </div>
@@ -219,19 +216,16 @@
                         </div>
                     </div>
                     <div class="actions">
-                        <button class="action-button" title="Descargar">
+                        <button class="action-button" onclick="downloadResource('/ruta/comuaventura-digital.pdf')" title="Descargar">
                             <i class="fas fa-download"></i>
                         </button>
-                        <button class="action-button" title="Compartir">
+                        <button class="action-button" onclick="shareResource('Comuaventura 3 años digital')" title="Compartir">
                             <i class="fas fa-share-alt"></i>
-                        </button>
-                        <button class="action-button" title="Más opciones">
-                            <i class="fas fa-ellipsis-v"></i>
                         </button>
                     </div>
                 </div>
 
-                <div class="resource-card">
+                <div class="resource-card" onclick="openResource('/ruta/cuaderno-media-aventuras.pdf')">
                     <div class="pdf-icon">
                         <i class="fas fa-file-pdf"></i>
                     </div>
@@ -244,19 +238,16 @@
                         </div>
                     </div>
                     <div class="actions">
-                        <button class="action-button" title="Descargar">
+                        <button class="action-button" onclick="downloadResource('/ruta/cuaderno-media-aventuras.pdf')" title="Descargar">
                             <i class="fas fa-download"></i>
                         </button>
-                        <button class="action-button" title="Compartir">
+                        <button class="action-button" onclick="shareResource('Cuaderno 3 años Media aventuras')" title="Compartir">
                             <i class="fas fa-share-alt"></i>
-                        </button>
-                        <button class="action-button" title="Más opciones">
-                            <i class="fas fa-ellipsis-v"></i>
                         </button>
                     </div>
                 </div>
 
-                <div class="resource-card">
+                <div class="resource-card" onclick="openResource('/ruta/guia-profesor-final.pdf')">
                     <div class="pdf-icon">
                         <i class="fas fa-file-pdf"></i>
                     </div>
@@ -269,19 +260,16 @@
                         </div>
                     </div>
                     <div class="actions">
-                        <button class="action-button" title="Descargar">
+                        <button class="action-button" onclick="downloadResource('/ruta/guia-profesor-final.pdf')" title="Descargar">
                             <i class="fas fa-download"></i>
                         </button>
-                        <button class="action-button" title="Compartir">
+                        <button class="action-button" onclick="shareResource('GUÍA PARA PROFESOR FINAL')" title="Compartir">
                             <i class="fas fa-share-alt"></i>
-                        </button>
-                        <button class="action-button" title="Más opciones">
-                            <i class="fas fa-ellipsis-v"></i>
                         </button>
                     </div>
                 </div>
 
-                <div class="resource-card">
+                <div class="resource-card" onclick="openResource('/ruta/mateaventura-digital.pdf')">
                     <div class="pdf-icon">
                         <i class="fas fa-file-pdf"></i>
                     </div>
@@ -294,15 +282,12 @@
                         </div>
                     </div>
                     <div class="actions">
-                        <button class="action-button" title="Descargar">
+                        <button class="action-button" onclick="downloadResource('/ruta/mateaventura-digital.pdf')" title="Descargar">
                             <i class="fas fa-download"></i>
                         </button>
-                        <button class="action-button" title="Compartir">
+                        <button class="action-button" onclick="shareResource('Mateaventura 3 años digital')" title="Compartir">
                             <i class="fas fa-share-alt"></i>
                         </button>
-                        <button class="action-button" title="Más opciones">
-                            <i class="fas fa-ellipsis-v"></i>
-                        </button>
                     </div>
                 </div>
             </div>
@@ -310,282 +295,20 @@
     </div>
 
     <script>
-        // Add hover effect for resource cards
-        document.querySelectorAll('.resource-card').forEach(card => {
-            card.addEventListener('click', function(e) {
-                if (!e.target.closest('.action-button')) {
-                    // Handle card click (e.g., open PDF)
-                    console.log('Open PDF:', this.querySelector('.resource-title').textContent);
-                }
-            });
-        });
-
-        // Handle action button clicks
-        document.querySelectorAll('.action-button').forEach(button => {
-            button.addEventListener('click', function(e) {
-                e.stopPropagation();
-                const action = this.getAttribute('title');
-                const resourceTitle = this.closest('.resource-card').querySelector('.resource-title').textContent;
-                console.log(`${action} clicked for: ${resourceTitle}`);
-            });
-        });
-    </script>
-</body>
-</html>
-
-
- --- aqui se divide
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicial - 3 Años</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        function openResource(url) {
+            window.location.href = url;
         }
 
-        body {
-            min-height: 100vh;
-            background: #f5f7fa;
+        function downloadResource(url) {
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = '';
+            link.click();
         }
 
-        .container {
-            display: flex;
-            min-height: 100vh;
+        function shareResource(title) {
+            alert(`Compartir: ${title}`);
         }
-
-        .sidebar {
-            width: 280px;
-            background: white;
-            padding: 2rem;
-            box-shadow: 2px 0 10px rgba(0,0,0,0.1);
-        }
-
-        .logo {
-            max-width: 200px;
-            height: auto;
-            margin-bottom: 2rem;
-        }
-
-        .main-content {
-            flex: 1;
-            padding: 2rem;
-        }
-
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 2rem;
-        }
-
-        .welcome-text {
-            font-size: 1.8rem;
-            color: #333;
-        }
-
-        .resources-grid {
-            display: grid;
-            gap: 1rem;
-        }
-
-        .resource-card {
-            background: white;
-            border-radius: 12px;
-            padding: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            transition: all 0.3s;
-            cursor: pointer;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
-
-        .resource-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-
-        .pdf-icon {
-            background: #ff4b4b;
-            color: white;
-            width: 48px;
-            height: 48px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-        }
-
-        .resource-info {
-            flex: 1;
-        }
-
-        .resource-title {
-            font-size: 1.1rem;
-            color: #333;
-            margin-bottom: 0.3rem;
-        }
-
-        .resource-meta {
-            display: flex;
-            gap: 2rem;
-            color: #666;
-            font-size: 0.9rem;
-        }
-
-        .actions {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .action-button {
-            background: none;
-            border: none;
-            color: #666;
-            cursor: pointer;
-            padding: 0.5rem;
-            border-radius: 4px;
-            transition: all 0.3s;
-        }
-
-        .action-button:hover {
-            background: #f0f2f5;
-            color: #333;
-        }
-
-        .back-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 1rem;
-            background: white;
-            border: none;
-            border-radius: 8px;
-            color: #666;
-            text-decoration: none;
-            margin-bottom: 1rem;
-            transition: all 0.3s;
-        }
-
-        .back-button:hover {
-            background: #f0f2f5;
-            color: #333;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
-            }
-
-            .sidebar {
-                width: 100%;
-                padding: 1rem;
-            }
-
-            .main-content {
-                padding: 1rem;
-            }
-
-            .resource-meta {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-        }
-    </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
-<body>
-    <div class="container">
-        <div class="sidebar">
-            <img src="/api/placeholder/200/50" alt="Apprendia Logo" class="logo">
-        </div>
-
-        <div class="main-content">
-            <a href="/inicial.html" class="back-button">
-                <i class="fas fa-arrow-left"></i>
-                Volver a Inicial
-            </a>
-
-            <div class="header">
-                <h1 class="welcome-text">Recursos para 3 Años</h1>
-            </div>
-
-            <div class="resources-grid">
-                <div class="resource-card">
-                    <div class="pdf-icon">
-                        <i class="fas fa-file-pdf"></i>
-                    </div>
-                    <div class="resource-info">
-                        <h3 class="resource-title"><a href="https://drive.google.com/file/d/1SPPyzrca7FpdZZqlRJMlhrkvY_fbA2Aa/view?usp=sharing" target="_blank">CARTILLA PARA FAMILIAS</a></h3>
-                    </div>
-                </div>
-
-                <div class="resource-card">
-                    <div class="pdf-icon">
-                        <i class="fas fa-file-pdf"></i>
-                    </div>
-                    <div class="resource-info">
-                        <h3 class="resource-title"><a href="https://drive.google.com/file/d/1o312vl_OxYTUkfocVog8B5aWrRqpl1mT/view?usp=drive_link" target="_blank">Comuaventura 3 años digital</a></h3>
-                    </div>
-                </div>
-
-                <div class="resource-card">
-                    <div class="pdf-icon">
-                        <i class="fas fa-file-pdf"></i>
-                    </div>
-                    <div class="resource-info">
-                        <h3 class="resource-title"><a href="https://drive.google.com/file/d/15hwtkBp4fvRJIrieHXi5TxzZr8Bd9Ofi/view?usp=drive_link" target="_blank">Cuaderno 3 años Media aventuras</a></h3>
-                    </div>
-                </div>
-
-                <div class="resource-card">
-                    <div class="pdf-icon">
-                        <i class="fas fa-file-pdf"></i>
-                    </div>
-                    <div class="resource-info">
-                        <h3 class="resource-title"><a href="https://drive.google.com/file/d/1HnVabpK3555Hqs9cwxG_-b12-Ve9hPs7/view?usp=drive_link" target="_blank">GUÍA PARA PROFESOR FINAL</a></h3>
-                    </div>
-                </div>
-
-                <div class="resource-card">
-                    <div class="pdf-icon">
-                        <i class="fas fa-file-pdf"></i>
-                    </div>
-                    <div class="resource-info">
-                        <h3 class="resource-title"><a href="https://drive.google.com/file/d/1c9EsoA6q-QDMjB0oLVJwEl0Q31QlE00L/view?usp=drive_link" target="_blank">Mateaventura 3 años digital</a></h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // Add hover effect for resource cards
-        document.querySelectorAll('.resource-card').forEach(card => {
-            card.addEventListener('click', function(e) {
-                if (!e.target.closest('.action-button')) {
-                    // Handle card click (e.g., open PDF)
-                    console.log('Open PDF:', this.querySelector('.resource-title').textContent);
-                }
-            });
-        });
-
-        // Handle action button clicks
-        document.querySelectorAll('.action-button').forEach(button => {
-            button.addEventListener('click', function(e) {
-                e.stopPropagation();
-                const action = this.getAttribute('title');
-                const resourceTitle = this.closest('.resource-card').querySelector('.resource-title').textContent;
-                console.log(`${action} clicked for: ${resourceTitle}`);
-            });
-        });
     </script>
 </body>
 </html>
