@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicial - 3 Años</title>
+    <title>Inicial - 3 y 4 Años</title>
     <style>
+        /* Estilos idénticos al anterior */
         * {
             margin: 0;
             padding: 0;
@@ -26,7 +27,7 @@
             width: 280px;
             background: white;
             padding: 2rem;
-            box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
         }
 
         .logo {
@@ -66,16 +67,16 @@
             gap: 1.5rem;
             transition: all 0.3s;
             cursor: pointer;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
         }
 
         .resource-card:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
         .pdf-icon {
-            background: #ff4b4b;
+            background: #4b96ff;
             color: white;
             width: 48px;
             height: 48px;
@@ -177,56 +178,55 @@
             </a>
 
             <div class="header">
-                <h1 class="welcome-text">Recursos para 3 Años</h1>
+                <h1 class="welcome-text">Recursos para 3 y 4 Años</h1>
             </div>
 
             <div class="resources-grid">
-                <div class="resource-card">
+                <!-- Recursos para 3 años -->
+                <div class="resource-card" onclick="openPDF('https://drive.google.com/file/d/1SPPyzrca7FpdZZqlRJMlhrkvY_fbA2Aa/view?usp=sharing')">
                     <div class="pdf-icon">
                         <i class="fas fa-file-pdf"></i>
                     </div>
                     <div class="resource-info">
-                        <h3 class="resource-title"><a href="https://drive.google.com/file/d/1SPPyzrca7FpdZZqlRJMlhrkvY_fbA2Aa/view?usp=sharing" target="_blank">CARTILLA PARA FAMILIAS</a></h3>
+                        <h3 class="resource-title">CARTILLA PARA FAMILIAS (3 años)</h3>
+                        <div class="resource-meta">
+                            <span><i class="far fa-calendar"></i> 8 ago 2022</span>
+                            <span><i class="fas fa-user"></i> apprendia.muestras</span>
+                            <span><i class="fas fa-file-archive"></i> 12.1 MB</span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="resource-card">
+                <!-- Recursos para 4 años -->
+                <div class="resource-card" onclick="openPDF('https://drive.google.com/file/d/10UEO3_YbzfT1ViWlajrvRfBuRjRm1dcs/preview')">
                     <div class="pdf-icon">
                         <i class="fas fa-file-pdf"></i>
                     </div>
                     <div class="resource-info">
-                        <h3 class="resource-title"><a href="https://drive.google.com/file/d/1o312vl_OxYTUkfocVog8B5aWrRqpl1mT/view?usp=drive_link" target="_blank">Comuaventura 3 años digital</a></h3>
-                    </div>
-                </div>
-
-                <div class="resource-card">
-                    <div class="pdf-icon">
-                        <i class="fas fa-file-pdf"></i>
-                    </div>
-                    <div class="resource-info">
-                        <h3 class="resource-title"><a href="https://drive.google.com/file/d/15hwtkBp4fvRJIrieHXi5TxzZr8Bd9Ofi/view?usp=drive_link" target="_blank">Cuaderno 3 años Media aventuras</a></h3>
-                    </div>
-                </div>
-
-                <div class="resource-card">
-                    <div class="pdf-icon">
-                        <i class="fas fa-file-pdf"></i>
-                    </div>
-                    <div class="resource-info">
-                        <h3 class="resource-title"><a href="https://drive.google.com/file/d/1HnVabpK3555Hqs9cwxG_-b12-Ve9hPs7/view?usp=drive_link" target="_blank">GUÍA PARA PROFESOR FINAL</a></h3>
-                    </div>
-                </div>
-
-                <div class="resource-card">
-                    <div class="pdf-icon">
-                        <i class="fas fa-file-pdf"></i>
-                    </div>
-                    <div class="resource-info">
-                        <h3 class="resource-title"><a href="https://drive.google.com/file/d/1c9EsoA6q-QDMjB0oLVJwEl0Q31QlE00L/view?usp=drive_link" target="_blank">Mateaventura 3 años digital</a></h3>
+                        <h3 class="resource-title">Cartilla para Familias (4 años)</h3>
+                        <div class="resource-meta">
+                            <span><i class="far fa-calendar"></i> 16 sept 2022</span>
+                            <span><i class="fas fa-user"></i> apprendia.muestras</span>
+                            <span><i class="fas fa-file-archive"></i> 12.1 MB</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        function openPDF(pdfPath) {
+            window.open(pdfPath, '_blank');
+        }
+
+        function downloadPDF(pdfPath, event) {
+            event.stopPropagation();
+            const link = document.createElement('a');
+            link.href = pdfPath;
+            link.download = pdfPath.split('/').pop();
+            link.click();
+        }
+    </script>
 </body>
 </html>
