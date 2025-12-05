@@ -1,0 +1,527 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>Infografía - Detector AI vs Real</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #333;
+      padding: 2rem;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      overflow: hidden;
+    }
+    .header {
+      background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    .header h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+    .header p {
+      font-size: 1.3rem;
+      opacity: 0.95;
+    }
+    .section {
+      padding: 3rem 2rem;
+      border-bottom: 2px solid #f0f0f0;
+    }
+    .section:last-child {
+      border-bottom: none;
+    }
+    .section-title {
+      font-size: 2rem;
+      color: #2563eb;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .icon {
+      font-size: 2.5rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .card {
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .card-title {
+      font-size: 1.5rem;
+      color: #2563eb;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+    .stat {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #7c3aed;
+      margin: 0.5rem 0;
+    }
+    .dataset-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .dataset-box {
+      background: white;
+      border: 3px solid #e0e7ff;
+      border-radius: 15px;
+      padding: 2rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    .dataset-box.fake {
+      border-color: #fca5a5;
+      background: linear-gradient(135deg, #fff1f2 0%, #ffe4e6 100%);
+    }
+    .dataset-box.real {
+      border-color: #86efac;
+      background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+    }
+    .dataset-title {
+      font-size: 1.8rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    .dataset-box.fake .dataset-title {
+      color: #dc2626;
+    }
+    .dataset-box.real .dataset-title {
+      color: #16a34a;
+    }
+    .source-item {
+      padding: 0.8rem;
+      margin: 0.5rem 0;
+      background: white;
+      border-radius: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 500;
+    }
+    .source-count {
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: #7c3aed;
+    }
+    .architecture {
+      background: #f8fafc;
+      padding: 2rem;
+      border-radius: 15px;
+      margin-top: 2rem;
+    }
+    .flow-diagram {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .flow-box {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      border: 2px solid #2563eb;
+      min-width: 150px;
+      text-align: center;
+      font-weight: 600;
+      color: #2563eb;
+    }
+    .arrow {
+      font-size: 2rem;
+      color: #7c3aed;
+    }
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .tech-badge {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 0.7rem 1.5rem;
+      border-radius: 25px;
+      font-weight: 600;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .metric-card {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 2rem;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    }
+    .metric-value {
+      font-size: 3rem;
+      font-weight: bold;
+      margin: 0.5rem 0;
+    }
+    .metric-label {
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+    .features-list {
+      list-style: none;
+      margin-top: 1.5rem;
+    }
+    .features-list li {
+      padding: 1rem;
+      margin: 0.5rem 0;
+      background: #f1f5f9;
+      border-left: 4px solid #2563eb;
+      border-radius: 8px;
+      font-weight: 500;
+    }
+    .features-list li::before {
+      content: '✓';
+      color: #16a34a;
+      font-weight: bold;
+      font-size: 1.3rem;
+      margin-right: 0.8rem;
+    }
+    .footer {
+      background: #1e293b;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+    .footer a {
+      color: #60a5fa;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    @media (max-width: 768px) {
+      .header h1 { font-size: 2rem; }
+      .section-title { font-size: 1.5rem; }
+      .dataset-grid { grid-template-columns: 1fr; }
+      .flow-diagram { flex-direction: column; }
+      .arrow { transform: rotate(90deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- HEADER -->
+    <div class="header">
+      <h1>🤖 AI vs Real Image Detector</h1>
+      <p>Clasificador de Imágenes Generadas por IA usando Deep Learning</p>
+    </div>
+
+    <!-- RESUMEN DEL PROYECTO -->
+    <div class="section">
+      <h2 class="section-title"><span class="icon">📊</span> Resumen del Proyecto</h2>
+      <p style="font-size: 1.1rem; color: #555; margin-bottom: 1rem;">
+        Sistema avanzado de detección de imágenes generadas por inteligencia artificial vs imágenes reales, 
+        desarrollado con arquitectura ResNet50 pre-entrenada y técnicas de Deep Learning. El modelo fue 
+        entrenado con 60,000 imágenes balanceadas, logrando una precisión del 93.5% en el conjunto de validación.
+      </p>
+      <p style="font-size: 1rem; color: #666; margin-bottom: 1.5rem;">
+        Este proyecto aborda el creciente desafío de distinguir contenido visual generado por IA (Stable Diffusion, 
+        MidJourney, DALL-E) de fotografías reales. El sistema implementa transfer learning con fine-tuning para 
+        optimizar el rendimiento y proporciona una API REST para integración en aplicaciones reales.
+      </p>
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <div class="metric-value">60K</div>
+          <div class="metric-label">Imágenes Totales</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-value">93.5%</div>
+          <div class="metric-label">Precisión</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-value">50/50</div>
+          <div class="metric-label">Balance AI/Real</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-value">ResNet50</div>
+          <div class="metric-label">Arquitectura</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DATASET -->
+    <div class="section">
+      <h2 class="section-title"><span class="icon">🗂️</span> Composición del Dataset</h2>
+      <p style="font-size: 1rem; color: #555; margin-bottom: 1.5rem;">
+        El dataset está compuesto por 60,000 imágenes cuidadosamente seleccionadas y balanceadas 
+        entre dos categorías principales: imágenes generadas por IA y fotografías reales. Esta 
+        distribución equitativa (50% cada clase) asegura un entrenamiento sin sesgo y mejora la 
+        capacidad de generalización del modelo. Las imágenes AI provienen de los tres generadores 
+        más populares del mercado, mientras que las imágenes reales incluyen fotografía profesional 
+        y arte tradicional.
+      </p>
+      <div class="dataset-grid">
+        <div class="dataset-box fake">
+          <div class="dataset-title">🎨 Imágenes AI-Generated</div>
+          <div class="stat" style="text-align: center; color: #dc2626;">30,000</div>
+          <div class="source-item">
+            <span>Stable Diffusion</span>
+            <span class="source-count">10,000</span>
+          </div>
+          <div class="source-item">
+            <span>MidJourney</span>
+            <span class="source-count">10,000</span>
+          </div>
+          <div class="source-item">
+            <span>DALL-E</span>
+            <span class="source-count">10,000</span>
+          </div>
+        </div>
+
+        <div class="dataset-box real">
+          <div class="dataset-title">📷 Imágenes Reales</div>
+          <div class="stat" style="text-align: center; color: #16a34a;">30,000</div>
+          <div class="source-item">
+            <span>Pexels & Unsplash</span>
+            <span class="source-count">22,500</span>
+          </div>
+          <div class="source-item">
+            <span>WikiArt</span>
+            <span class="source-count">7,500</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ARQUITECTURA -->
+    <div class="section">
+      <h2 class="section-title"><span class="icon">🏗️</span> Arquitectura del Sistema</h2>
+      <p style="font-size: 1rem; color: #555; margin-bottom: 1.5rem;">
+        El sistema implementa una arquitectura completa de machine learning, desde la preparación de datos 
+        hasta el despliegue en producción. Utiliza ResNet50 (Residual Neural Network con 50 capas) 
+        pre-entrenada en ImageNet, aprovechando transfer learning para reducir el tiempo de entrenamiento 
+        y mejorar la precisión. El modelo final se sirve mediante una API REST construida con FastAPI, 
+        permitiendo integraciones rápidas y escalables.
+      </p>
+      <div class="architecture">
+        <div class="flow-diagram">
+          <div class="flow-box">📁 Dataset<br>(60K imgs)</div>
+          <div class="arrow">→</div>
+          <div class="flow-box">🧠 ResNet50<br>Transfer Learning</div>
+          <div class="arrow">→</div>
+          <div class="flow-box">⚙️ Training<br>& Validation</div>
+          <div class="arrow">→</div>
+          <div class="flow-box">💾 Modelo<br>(.pt)</div>
+          <div class="arrow">→</div>
+          <div class="flow-box">🌐 Web API<br>FastAPI</div>
+          <div class="arrow">→</div>
+          <div class="flow-box">🖥️ Interface<br>HTML/JS</div>
+        </div>
+      </div>
+
+      <h3 style="margin-top: 2rem; color: #2563eb; font-size: 1.5rem;">Stack Tecnológico</h3>
+      <div class="tech-stack">
+        <div class="tech-badge">🐍 Python</div>
+        <div class="tech-badge">🔥 PyTorch</div>
+        <div class="tech-badge">🖼️ Torchvision</div>
+        <div class="tech-badge">⚡ FastAPI</div>
+        <div class="tech-badge">🎨 Pillow</div>
+        <div class="tech-badge">📊 NumPy</div>
+        <div class="tech-badge">🌐 HTML/CSS/JS</div>
+        <div class="tech-badge">📈 Matplotlib</div>
+      </div>
+    </div>
+
+    <!-- CARACTERÍSTICAS -->
+    <div class="section">
+      <h2 class="section-title"><span class="icon">✨</span> Características Principales</h2>
+      <p style="font-size: 1rem; color: #555; margin-bottom: 1.5rem;">
+        El sistema ofrece una solución integral para la detección de imágenes generadas por IA, 
+        con capacidades avanzadas de procesamiento, análisis y visualización. Diseñado para ser 
+        escalable y fácil de integrar en aplicaciones existentes.
+      </p>
+      <div class="grid">
+        <div class="card">
+          <div class="card-title">🎯 Clasificación Binaria</div>
+          <p>Detección precisa entre imágenes generadas por IA y fotografías reales con probabilidades 
+          detalladas para cada clase. El modelo devuelve scores de confianza que permiten establecer 
+          umbrales personalizados.</p>
+        </div>
+        <div class="card">
+          <div class="card-title">🔄 Transfer Learning</div>
+          <p>Utiliza ResNet50 pre-entrenado en ImageNet (1.4M imágenes, 1000 clases) con fine-tuning 
+          específico para nuestro dominio. Esto reduce el tiempo de entrenamiento y mejora la precisión 
+          aprovechando features pre-aprendidas.</p>
+        </div>
+        <div class="card">
+          <div class="card-title">⚡ API REST</div>
+          <p>API rápida y eficiente desarrollada con FastAPI que soporta endpoints para predicción individual, 
+          batch processing y health checks. Documentación automática con Swagger UI incluida.</p>
+        </div>
+        <div class="card">
+          <div class="card-title">📊 Análisis Visual</div>
+          <p>Generación automática de métricas completas: curvas de entrenamiento (loss/accuracy), 
+          ROC curves, Precision-Recall curves, matriz de confusión y reportes detallados de errores 
+          de clasificación.</p>
+        </div>
+        <div class="card">
+          <div class="card-title">🎨 Interfaz Web</div>
+          <p>Dashboard limpio y responsive desarrollado con HTML/CSS/JavaScript vanilla. Permite subir 
+          imágenes mediante drag & drop, visualizar previews y obtener resultados con probabilidades 
+          en tiempo real.</p>
+        </div>
+        <div class="card">
+          <div class="card-title">📦 Batch Processing</div>
+          <p>Capacidad de procesamiento por lotes para análisis masivo de imágenes. Ideal para validar 
+          galerías completas o datasets. Incluye generación de reportes CSV con todas las predicciones.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ESTRUCTURA DEL PROYECTO -->
+    <div class="section">
+      <h2 class="section-title"><span class="icon">📂</span> Estructura del Proyecto</h2>
+      <ul class="features-list">
+        <li><strong>src/train_detector.py</strong> - Script principal de entrenamiento del modelo</li>
+        <li><strong>src/inference_api.py</strong> - API FastAPI para predicciones en tiempo real</li>
+        <li><strong>src/test_single_image.py</strong> - Prueba de imágenes individuales</li>
+        <li><strong>src/batch_inference.py</strong> - Procesamiento batch de imágenes</li>
+        <li><strong>src/visualization/</strong> - Scripts para generación de gráficos y métricas</li>
+        <li><strong>web/index.html</strong> - Interfaz web interactiva</li>
+        <li><strong>artifacts_ep5/</strong> - Modelos entrenados, métricas y visualizaciones</li>
+      </ul>
+    </div>
+
+    <!-- FLUJO DE USO -->
+    <div class="section">
+      <h2 class="section-title"><span class="icon">🚀</span> Flujo de Uso</h2>
+      <div class="architecture">
+        <ol style="font-size: 1.1rem; line-height: 2; padding-left: 1.5rem;">
+          <li><strong>Entrenamiento:</strong> Ejecutar <code>train_detector.py</code> con el dataset de 60K imágenes</li>
+          <li><strong>Generación de Métricas:</strong> Visualizar curvas de entrenamiento y métricas de rendimiento</li>
+          <li><strong>Iniciar API:</strong> Levantar servidor FastAPI en <code>http://192.168.41.200:8000</code></li>
+          <li><strong>Interfaz Web:</strong> Abrir <code>index.html</code> en <code>http://192.168.41.200:5500</code></li>
+          <li><strong>Predicción:</strong> Subir imagen y obtener clasificación con probabilidades</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- RESULTADOS -->
+    <div class="section" style="background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);">
+      <h2 class="section-title"><span class="icon">📈</span> Resultados y Métricas de Entrenamiento</h2>
+      <p style="font-size: 1rem; color: #555; margin-bottom: 1.5rem;">
+        El modelo alcanzó una precisión del 93.5% en el conjunto de validación después de 5 épocas de 
+        entrenamiento. Las métricas muestran un balance equilibrado entre precisión y recall para ambas 
+        clases, indicando que el modelo no está sesgado hacia ninguna categoría. El F1-Score de 93.5% 
+        confirma la robustez del clasificador.
+      </p>
+      
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <div class="metric-value">93.5%</div>
+          <div class="metric-label">Accuracy Global</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-value">96.1%</div>
+          <div class="metric-label">Recall (Clase Real)</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-value">95.9%</div>
+          <div class="metric-label">Precision (Clase Fake)</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-value">93.5%</div>
+          <div class="metric-label">F1-Score Macro</div>
+        </div>
+      </div>
+
+      <h3 style="margin-top: 2rem; color: #2563eb; font-size: 1.5rem; margin-bottom: 1rem;">Visualizaciones del Entrenamiento</h3>
+      
+      <div style="background: white; padding: 2rem; border-radius: 15px; margin-bottom: 2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
+        <h4 style="color: #2563eb; margin-bottom: 1rem; font-size: 1.2rem;">Curvas de Entrenamiento - Loss y Accuracy</h4>
+        <p style="font-size: 0.95rem; color: #666; margin-bottom: 1rem;">
+          El gráfico muestra la evolución del loss y accuracy durante las 5 épocas. Se observa una 
+          convergencia estable sin signos de overfitting, con el validation loss manteniéndose cercano 
+          al training loss.
+        </p>
+        <img src="../training_curves.png" 
+             alt="Training Curves" 
+             style="width: 100%; max-width: 900px; border-radius: 8px; display: block; margin: 0 auto; box-shadow: 0 2px 10px rgba(0,0,0,0.1);" />
+      </div>
+
+      <div class="grid" style="margin-top: 2rem;">
+        <div style="background: white; padding: 1.5rem; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
+          <h4 style="color: #dc2626; margin-bottom: 1rem; font-size: 1.2rem;">ROC & PR Curves - Clase Fake</h4>
+          <p style="font-size: 0.9rem; color: #666; margin-bottom: 1rem;">
+            Curvas ROC y Precision-Recall para la detección de imágenes generadas por IA.
+          </p>
+          <img src="../roc_pr_curves_fake.png" 
+               alt="ROC PR Curves Fake" 
+               style="width: 100%; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);" />
+        </div>
+
+        <div style="background: white; padding: 1.5rem; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
+          <h4 style="color: #16a34a; margin-bottom: 1rem; font-size: 1.2rem;">ROC & PR Curves - Clase Real</h4>
+          <p style="font-size: 0.9rem; color: #666; margin-bottom: 1rem;">
+            Curvas ROC y Precision-Recall para la detección de imágenes reales/fotográficas.
+          </p>
+          <img src="../roc_pr_curves_real.png" 
+               alt="ROC PR Curves Real" 
+               style="width: 100%; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);" />
+        </div>
+      </div>
+
+      <h3 style="margin-top: 2.5rem; color: #2563eb; font-size: 1.5rem; margin-bottom: 1rem;">Capacidades del Sistema</h3>
+      <div class="grid">
+        <div class="card" style="background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);">
+          <div class="card-title">🎯 Alta Precisión</div>
+          <p>93.5% de accuracy con balance entre precision y recall. Modelo robusto validado con métricas completas guardadas en artifacts_ep5/</p>
+        </div>
+        <div class="card" style="background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);">
+          <div class="card-title">⏱️ Inferencia Rápida</div>
+          <p>API REST optimizada con FastAPI para respuestas en tiempo real. Procesamiento de imágenes en milisegundos</p>
+        </div>
+        <div class="card" style="background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);">
+          <div class="card-title">🔍 Análisis Exhaustivo</div>
+          <p>Sistema completo de análisis con reportes de misclassification, checkpoints y visualizaciones automáticas de métricas</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <p style="font-size: 1.2rem; margin-bottom: 0.5rem;">🤖 AI vs Real Image Detector</p>
+      <p>Proyecto de Deep Learning | ResNet50 | 60,000 imágenes</p>
+      <p style="margin-top: 1rem;">API: <a href="http://192.168.41.200:8000">http://192.168.41.200:8000</a></p>
+      <p>Web: <a href="http://192.168.41.200:5500">http://192.168.41.200:5500</a></p>
+    </div>
+  </div>
+</body>
+</html>
