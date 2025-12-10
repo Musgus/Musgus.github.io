@@ -1,0 +1,4 @@
+algorithm,silhouette,davies_bouldin,params,inertia,n_clusters,n_noise
+KMeans,0.2885274648889859,1.355875315849665,k=2,1839.3628400957286,2,0
+Agglomerative,0.23656402091808867,1.7058703655215706,"n_clusters=2, linkage=ward",,2,0
+DBSCAN,0.2854466987471551,2.79894418667363,"eps=1.2, min_samples=5",,1,69

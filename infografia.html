@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Infografía - Caso de Estudio Wholesale Customers</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap');
+        
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --secondary: #f59e0b;
+            --accent: #8b5cf6;
+            --bg: #f8fafc;
+            --text: #0f172a;
+            --card: #ffffff;
+            --border: #e2e8f0;
+        }
+        
+        * { 
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(to bottom, #f8fafc 0%, #e0e7ff 100%);
+            color: var(--text);
+            line-height: 1.7;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            margin-bottom: 1rem;
+            text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+        
+        header p {
+            font-size: 1.3rem;
+            font-weight: 300;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+        }
+        
+        main {
+            max-width: 1200px;
+            margin: -3rem auto 0;
+            padding: 0 2rem 5rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        section {
+            margin-bottom: 3rem;
+            animation: fadeInUp 0.6s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .card {
+            background-color: var(--card);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--border);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.12);
+        }
+        
+        h2 {
+            margin-top: 0;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        h3 {
+            margin-top: 0.3rem;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 1.2rem;
+        }
+        
+        .grid {
+            display: grid;
+            gap: 2rem;
+        }
+        
+        .grid.two {
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+        
+        .metric {
+            background: linear-gradient(135deg, #eef2ff 0%, #dbeafe 100%);
+            border-left: 5px solid var(--primary);
+            padding: 1.5rem 1.8rem;
+            border-radius: 16px;
+            transition: transform 0.2s ease;
+        }
+        
+        .metric:hover {
+            transform: translateX(5px);
+        }
+        
+        .metric strong {
+            font-size: 1.4rem;
+            display: block;
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+        }
+        
+        figure {
+            margin: 0;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        figure:hover {
+            transform: scale(1.02);
+        }
+        
+        figure img {
+            width: 100%;
+            max-height: 450px;
+            object-fit: contain;
+            border-radius: 16px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+            border: 3px solid white;
+            transition: box-shadow 0.3s ease;
+        }
+        
+        figure img:hover {
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+        }
+        
+        figure figcaption {
+            margin-top: 1rem;
+            font-size: 0.95rem;
+            color: #64748b;
+            font-style: italic;
+            line-height: 1.5;
+        }
+        
+        ul {
+            padding-left: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        li {
+            margin-bottom: 0.8rem;
+            position: relative;
+            padding-left: 0.5rem;
+        }
+        
+        li::marker {
+            color: var(--primary);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2.5rem;
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            color: white;
+            font-size: 0.95rem;
+            margin-top: 3rem;
+            box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        footer code {
+            background-color: rgba(255, 255, 255, 0.15);
+            padding: 0.3rem 0.7rem;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                padding: 3rem 1.5rem;
+            }
+            header h1 {
+                font-size: 2.5rem;
+            }
+            header p {
+                font-size: 1.1rem;
+            }
+            main {
+                margin-top: -2rem;
+                padding: 0 1.5rem 3rem;
+            }
+            .card {
+                padding: 1.8rem;
+            }
+            h3 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Wholesale Customers</h1>
+    <p>Caso de estudio: comparación de algoritmos de clustering para segmentar clientes mayoristas</p>
+</header>
+<main>
+    <section class="card">
+        <h2>Contexto</h2>
+        <h3>¿Por qué analizar a los clientes Wholesale?</h3>
+        <p>
+            El dataset <strong>Wholesale Customers</strong> contiene 440 instancias con información de gasto anual en seis categorías 
+            de productos (Fresh, Milk, Grocery, Frozen, Detergents_Paper, Delicassen), además de Region (1-3) y Channel (1=Horeca, 2=Retail). 
+            Permite identificar patrones de consumo mediante clustering no supervisado.
+        </p>
+        <p style="margin-top: 1rem;">
+            Se construyó un pipeline reproducible en Python que evalúa tres algoritmos (<em>K-means</em>, <em>Agglomerative Hierarchical</em> 
+            y <em>DBSCAN</em>) tras aplicar transformaciones logarítmicas para reducir asimetría, clipping IQR para controlar valores extremos 
+            y escalado estándar (μ=0, σ=1) para normalizar magnitudes entre categorías.
+        </p>
+    </section>
+
+    <section class="grid two">
+        <div class="card">
+            <h2>Metodología</h2>
+            <h3>Flujo de trabajo modular</h3>
+            <ul>
+                <li><strong>data_loader.py:</strong> Carga CSV con pandas, genera EDA (info, describe, value_counts, histogramas automáticos).</li>
+                <li><strong>preprocessing.py:</strong> Selecciona features de gasto, detecta outliers por IQR (Q1-1.5·IQR, Q3+1.5·IQR), aplica log(x+ε) y StandardScaler.</li>
+                <li><strong>clustering_kmeans.py:</strong> Entrena K-means para K∈[2,10], calcula inertia y silhouette, elige K óptimo por máximo silhouette.</li>
+                <li><strong>clustering_hierarchical.py:</strong> Ejecuta AgglomerativeClustering con linkage='ward', genera dendrogram con scipy.hierarchy para inspección visual.</li>
+                <li><strong>clustering_dbscan.py:</strong> Implementa DBSCAN (eps=1.2, min_samples=5), cuenta clusters y ruido (-1 labels).</li>
+                <li><strong>evaluation.py:</strong> Calcula Silhouette y Davies-Bouldin con sklearn.metrics, construye diccionarios de métricas consistentes.</li>
+                <li><strong>visualization.py:</strong> Proyecta datos a 2D con PCA cuando >2 dimensiones, genera scatter plots, elbow/silhouette curves y bar charts comparativos.</li>
+                <li><strong>main.py:</strong> Orquesta pipeline completo, guarda métricas en CSV/JSON y todas las figuras en outputs/figures.</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h2>Hallazgos</h2>
+            <h3>Resumen ejecutivo</h3>
+            <div class="metric">
+                <strong>2 perfiles principales</strong>
+                K-means (silhouette=0.289) y Agglomerative (silhouette=0.237) convergen en dos conglomerados: uno de alto consumo en Grocery/Detergents_Paper (típico Retail) y otro con gasto más equilibrado (Horeca).
+            </div>
+            <div class="metric" style="margin-top: 0.9rem;">
+                <strong>Densidad desigual</strong>
+                DBSCAN detecta 1 cluster denso y marca 69 instancias (15.7%) como ruido; Davies-Bouldin=2.80 refleja solapamiento. Explorar HDBSCAN/OPTICS para capturar estructuras multinivel.
+            </div>
+            <div class="metric" style="margin-top: 0.9rem;">
+                <strong>Validación cruzada</strong>
+                Ambos algoritmos particionales coinciden en K=2 como óptimo local; dendrogram respalda corte en dos ramas principales con salto de distancia significativo.
+            </div>
+        </div>
+    </section>
+
+    <section class="card">
+        <h2>Exploración visual</h2>
+        <h3>Distribuciones y separación</h3>
+        <div class="grid two">
+            <figure>
+                <img src="outputs/figures/eda_histograms.png" alt="Histogramas de variables de gasto">
+                <figcaption>Histogramas log-transformados: Grocery y Detergents_Paper concentran la mayor varianza.</figcaption>
+            </figure>
+            <figure>
+                <img src="outputs/figures/kmeans_elbow.png" alt="Curva elbow de K-means">
+                <figcaption>Elbow sugiere cambio de pendiente alrededor de k=2, coherente con la mejor Silhouette.</figcaption>
+            </figure>
+            <figure>
+                <img src="outputs/figures/kmeans_silhouette.png" alt="Silhouette vs K">
+                <figcaption>Máximo de Silhouette en k=2 ⇒ clusters bien separados sin sobresegmentación.</figcaption>
+            </figure>
+            <figure>
+                <img src="outputs/figures/hierarchical_dendrogram.png" alt="Dendrograma de clustering jerárquico">
+                <figcaption>El dendrograma muestra gran salto de distancia antes de dividir el grupo en más de dos ramas.</figcaption>
+            </figure>
+        </div>
+    </section>
+
+    <section class="card">
+        <h2>Clústeres en 2D</h2>
+        <h3>Proyección PCA y densidades</h3>
+        <div class="grid two">
+            <figure>
+                <img src="outputs/figures/kmeans_clusters_k2.png" alt="Clusters K-means">
+                <figcaption>K-means (k=2) separa netamente clientes con gasto intensivo en productos de limpieza.</figcaption>
+            </figure>
+            <figure>
+                <img src="outputs/figures/agglomerative_clusters_2.png" alt="Clusters Agglomerative">
+                <figcaption>Agglomerative (ward) replica la estructura dual con fronteras más suaves.</figcaption>
+            </figure>
+            <figure>
+                <img src="outputs/figures/dbscan_clusters.png" alt="Clusters DBSCAN">
+                <figcaption>DBSCAN: un cluster denso y numerosos outliers ⇒ densidad heterogénea en el espacio transformado.</figcaption>
+            </figure>
+        </div>
+    </section>
+
+    <section class="card">
+        <h2>Métricas comparativas</h2>
+        <h3>Consistencia de agrupamientos</h3>
+        <div class="grid two">
+            <figure>
+                <img src="outputs/figures/comparison_silhouette.png" alt="Comparación Silhouette">
+                <figcaption>Silhouette: K-means lidera con ≈0.29, seguido de DBSCAN; Agglomerative baja ligeramente.</figcaption>
+            </figure>
+            <figure>
+                <img src="outputs/figures/comparison_davies_bouldin.png" alt="Comparación Davies-Bouldin">
+                <figcaption>Davies-Bouldin favorece a K-means (1.36) frente a Agglomerative (1.71); DBSCAN empeora por ruido.</figcaption>
+            </figure>
+        </div>
+    </section>
+
+    <section class="card">
+        <h2>Arquitectura del código</h2>
+        <h3>Detalles técnicos de implementación</h3>
+        <p style="margin-bottom: 1rem;">
+            El proyecto sigue principios de <strong>modularidad y separación de responsabilidades</strong>. Cada script Python tiene un propósito único:
+        </p>
+        <div class="grid two">
+            <div class="metric">
+                <strong>config.py</strong>
+                Define constantes globales (DATA_PATH, FEATURE_COLUMNS, RANDOM_SEED=42) y directorios de salida (BASE_DIR resuelve rutas absolutas con Path(__file__).parent).
+            </div>
+            <div class="metric">
+                <strong>preprocessing.py</strong>
+                Funciones select_features(), handle_outliers(method='iqr'), log_transform(eps=1e-3), scale_features() retornan arrays escalados + scaler para inversión posterior.
+            </div>
+            <div class="metric">
+                <strong>clustering_kmeans.py</strong>
+                run_kmeans() entrena KMeans(n_clusters=k, n_init='auto'); compute_inertia_vs_k() itera K∈range y retorna dict{k: inertia}; compute_silhouette_vs_k() evalúa cohesión.
+            </div>
+            <div class="metric">
+                <strong>clustering_hierarchical.py</strong>
+                run_agglomerative() usa AgglomerativeClustering con manejo de metric/affinity según versión sklearn; plot_dendrogram() llama scipy.hierarchy.linkage + dendrogram con truncate_mode='lastp'.
+            </div>
+            <div class="metric">
+                <strong>clustering_dbscan.py</strong>
+                run_dbscan(eps, min_samples) retorna labels y modelo; summarize_dbscan_labels() cuenta clusters válidos (!=−1) y noise points.
+            </div>
+            <div class="metric">
+                <strong>evaluation.py</strong>
+                compute_silhouette/davies_bouldin manejan casos de cluster único o todo-ruido (retornan None); build_metrics_dict() unifica columnas params/inertia/n_clusters/n_noise con defaults.
+            </div>
+            <div class="metric">
+                <strong>visualization.py</strong>
+                plot_clusters_2d() aplica PCA(n_components=2) si X.shape[1]>2, usa scatter con cmap='tab10'; plot_metric_comparison() genera bar charts con pd.to_numeric + dropna.
+            </div>
+            <div class="metric">
+                <strong>main.py</strong>
+                Pipeline ejecuta ensure_directories(), carga datos, EDA, preprocesa, entrena 3 algoritmos, construye DataFrame de métricas, llama a plot_metric_comparison(), persiste CSV/JSON/figuras.
+            </div>
+        </div>
+    </section>
+
+    <section class="card">
+        <h2>Decisiones de diseño</h2>
+        <h3>¿Por qué estas transformaciones?</h3>
+        <ul>
+            <li><strong>Log transform:</strong> Variables de gasto son altamente asimétricas (skewness >2); log(x+ε) estabiliza varianza y aproxima distribución normal, mejorando convergencia de K-means.</li>
+            <li><strong>IQR clipping:</strong> Outliers extremos en Fresh/Frozen distorsionan centroides; clipping a [Q1−1.5·IQR, Q3+1.5·IQR] preserva rango sin eliminar datos.</li>
+            <li><strong>StandardScaler:</strong> Magnitudes dispares (Grocery ~7000, Delicassen ~1000) sesgarían distancias euclidianas; escalado z-score iguala peso de features.</li>
+            <li><strong>PCA solo para visualización:</strong> Clustering opera en espacio 6D original; PCA(2) se aplica únicamente en scatter plots para interpretabilidad humana.</li>
+            <li><strong>Silhouette como selector de K:</strong> Davies-Bouldin favorece K grandes; Silhouette balancea cohesión intra-cluster y separación inter-cluster (rango [−1,1], óptimo cerca de 1).</li>
+            <li><strong>DBSCAN con eps fijo:</strong> Valor eps=1.2 determinado por inspección de nearest-neighbor distances; min_samples=5 equivale a 2·dimensiones−1 (regla empírica).</li>
+        </ul>
+    </section>
+
+    <section class="card">
+        <h2>Recomendaciones</h2>
+        <h3>Próximos pasos analíticos</h3>
+        <ul>
+            <li><strong>Validación externa:</strong> Comparar clusters con variable Channel (Chi-squared test) para evaluar alineación con segmentos conocidos.</li>
+            <li><strong>Grid search DBSCAN:</strong> Implementar bucle sobre eps∈[0.5,2.0] y min_samples∈[3,10], seleccionar config con max(silhouette) entre combinaciones con ≥2 clusters.</li>
+            <li><strong>Análisis de centroides:</strong> Invertir escalado/log con scaler.inverse_transform() y np.exp(), generar tabla comparativa de gasto promedio por cluster en unidades originales.</li>
+            <li><strong>Feature engineering:</strong> Calcular ratios Fresh/Total, Grocery/Detergents_Paper como nuevas features que capturen preferencias relativas.</li>
+            <li><strong>Métodos ensemble:</strong> Combinar asignaciones de K-means, Agglomerative y Gaussian Mixture con consenso (consensus clustering) para clusters más robustos.</li>
+            <li><strong>Interpretación con SHAP:</strong> Aunque clustering es no supervisado, aplicar SHAP TreeExplainer sobre RandomForest(features→cluster_label) para explicar qué variables definen cada grupo.</li>
+        </ul>
+    </section>
+</main>
+<footer>
+    Proyecto desarrollado en Python 3 con pandas, scikit-learn, matplotlib y seaborn. Resultados reproducibles ejecutando <code>python main.py</code>.
+</footer>
+</body>
+</html>
